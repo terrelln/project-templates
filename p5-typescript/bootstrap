@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+TEMPLATE=$(dirname "$0")
+OUT=$1
+
+run() {
+    echo "$@"
+    "$@"
+}
+
+run cp -r "$TEMPLATE" "$OUT"
+run cd "$OUT"
+run npm install --save-dev typescript @types/p5 webpack webpack-cli ts-loader
+run npm install p5
+run npm run build
